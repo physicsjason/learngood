@@ -14,16 +14,16 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = os.getenv("SECRETKEY")
-    url = URL.create(
-        drivername="postgresql",
-        username=os.getenv("USER"),
-        password=os.getenv("PASSWORD"),
-        host="localhost",
-        database="mydb"
-    )
+    # url = URL.create(
+    #     drivername="postgresql",
+    #     username=os.getenv("USER"),
+    #     password=os.getenv("PASSWORD"),
+    #     host="localhost",
+    #     database="mydb"
+    # )
 
-    #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-    app.config['SQLALCHEMY_DATABASE_URI'] = url
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+    #app.config['SQLALCHEMY_DATABASE_URI'] = url
 
     db.init_app(app)
 
